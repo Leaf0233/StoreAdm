@@ -1,0 +1,42 @@
+﻿@inject IHtmlLocalizer<StoreAdm.R0> R0
+
+@* 1.Outbound *@
+<form id='eform' class='xg-form'>
+    @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["InboundId"].Value, Fid = "Id" })
+    @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Creator"].Value, Fid = "CreatorName" })
+    @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Created"].Value, Fid = "Created", Format = BrFormatEstr.Dt })
+    @await Component.InvokeAsync("XiCheck", new XiCheckDto { Title = R0["Status"].Value, Fid = "Status", IsCheck = true, Label = R0["Normal"].Value })
+
+</form>
+
+@* 2.Column *@
+<div class='xg-btns-box'>
+    @await Component.InvokeAsync("XgAddRow", "_me.mItem.onAddRow()")
+</div>
+<form id='eformItem' class='xg-form' style="border:none">
+    <table class="table table-bordered xg-table xg-no-hline" cellspacing="0">
+        <thead>
+            <tr>
+                @* 3.XgTh component *@
+                <th>@R0["ItemType"]</th>
+                <th>@R0["Item"]</th>
+                <th width="150px">@R0["Amount"]</th>
+                <th>@R0["Crud"]</th>
+            </tr>
+        </thead>
+
+        <tbody id="divItems"></tbody>
+    </table>
+</form>
+@await Component.InvokeAsync("XgSaveBack")
+
+@* 4.row template, set td width, Nullable set false first then set by js *@
+<script id="tplItem" type="text/template">
+    <tr>
+        @await Component.InvokeAsync("XiHide", new XiHideDto { Fid = "Id" })
+        <td>@await Component.InvokeAsync("XiSelect", new XiSelectDto { Fid = "_TypeId", Rows = (List<IdStrDto>)ViewBag.ItemTypes, Required = true, FnOnChange = "_me.onChangeType(this)" })</td>
+        <td>@await Component.InvokeAsync("XiSelect", new XiSelectDto { Fid = "ItemId", Required = true })</td>
+        <td>@await Component.InvokeAsync("XiInt", new XiIntDto { Fid = "Amount", Value = "{{Amount}}" })</td>
+        <td class="text-center">@await Component.InvokeAsync("XgDeleteRow", "_me.mItem.onDeleteRow(this)")</td>
+    </tr>
+</script>

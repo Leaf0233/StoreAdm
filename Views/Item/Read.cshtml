@@ -1,0 +1,63 @@
+﻿@inject IHtmlLocalizer<StoreAdm.R0> R0
+@inject IViewLocalizer R
+<script src="~/js/view/Item.js"></script>
+<script type="text/javascript">
+    $(function () {
+        _me.init();
+    });
+</script>
+
+@await Component.InvokeAsync("XgProgPath", new { names = new string[] { R0["MenuItem"].Value } })
+
+<div class="xg-prog">
+    <div id="divRead">
+        @* 4.first query area *@
+        <form id='formRead' class='xg-form xg-mb0'>
+            <div class="row">
+                @await Component.InvokeAsync("XiSelect", new XiSelectDto { Title = R["ItemType"].Value, Fid = "TypeId", Rows = ViewBag.ItemTypes, InRow = true })
+
+                @* 5.toolbar *@
+                @await Component.InvokeAsync("XgFindTbar", new XgFindTbarDto { HasReset = true, HasFind2 = true })
+            </div>
+            @await Component.InvokeAsync("XiSelect", new XiSelectDto { Title = R["Maker"].Value, Fid = "MakerId", Rows = ViewBag.Makers })
+            @await Component.InvokeAsync("XiText", new XiTextDto { Title = R["Item"].Value, Fid = "Name", MaxLen = 40 })
+        </form>
+        <div class='xg-btns-box'>
+            <vc:xg-create/>
+        </div>
+        <table id="tableRead" class="table xg-table" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>@R["Item"]</th>
+                    <th>@R["ItemType"]</th>
+                    <th>@R["Unit"]</th>
+                    <th>@R["Maker"]</th>
+                    <th>@R0["Crud"]</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="divEdit" class="xg-hide">
+        <form id='eform' class='xg-form'>
+            <vc:xi-hide dto="@(new(){ Fid = "Id"})" />
+            <vc:xi-text dto="@(new(){ Title = R["Item"].Value, Fid = "Name", MaxLen = 40, Required = true })" />
+            <vc:xi-select dto="@(new(){ Title = R["ItemType"].Value, Fid = "TypeId", Rows = ViewBag.ItemTypes, Required = true })" />
+            <vc:xi-text dto="@(new(){ Title = R["Unit"].Value, Fid = "Unit", MaxLen = 30})" />
+            <vc:xi-select dto="@(new(){ Title = R["Maker"].Value, Fid = "MakerId", Rows = ViewBag.Makers, Required = true })" />
+
+            <div class="row">
+                @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Creator"].Value, Fid = "CreatorName", InRow = true, Cols = "2,3" })
+                @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Reviser"].Value, Fid = "ReviserName", InRow = true, Cols = "2,3" })
+            </div>
+            <div class="row">
+                @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Created"].Value, Fid = "Created", Format = BrFormatEstr.Dt, InRow = true, Cols = "2,3" })
+                @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Revised"].Value, Fid = "Revised", Format = BrFormatEstr.Dt, InRow = true, Cols = "2,3" })
+            </div>
+        </form>
+        <vc:xg-save-back/>
+    </div>
+</div>
+
+

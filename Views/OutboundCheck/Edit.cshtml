@@ -1,0 +1,46 @@
+﻿@inject IHtmlLocalizer<StoreAdm.R0> R0
+
+@* 1.Outbound *@
+<form id='eform' class='xg-form'>
+    @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["OutboundId"].Value, Fid = "Id" })
+    <div class="row">
+        @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Applicant"].Value, Fid = "CreatorName", InRow = true, Cols = "2,3" })
+        @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Checker"].Value, Fid = "Checker", InRow = true, Cols = "2,3" })
+    </div>
+    <div class="row">
+        @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Applicated"].Value, Fid = "Created", Format = BrFormatEstr.Dt, InRow = true, Cols = "2,3" })
+        @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["CheckTime"].Value, Fid = "CheckTime", Format = BrFormatEstr.Dt, InRow = true, Cols = "2,3" })
+    </div>
+    <div class="row">
+        @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["TakeTime"].Value, Fid = "TakeTime", Format = BrFormatEstr.Dt, InRow = true, Cols = "2,3" })
+        @await Component.InvokeAsync("XiSelect", new XiSelectDto { Title = R0["CheckStatus"].Value, Fid = "CheckStatus", Rows = ViewBag.CheckStatuses, InRow = true, Cols = "2,3" })
+    </div>
+    <div class="row">
+        @await Component.InvokeAsync("XiRead", new XiReadDto { Title = R0["Status"].Value, Fid = "StatusName", InRow = true, Cols = "2,3" })
+        @await Component.InvokeAsync("XiTextarea", new XiTextareaDto { Title = R0["CheckNote"].Value, Fid = "CheckNote", InRow = true, Cols = "2,3" })
+    </div>
+</form>
+
+<form id='eformItem' class='xg-form' style="border:none">
+    <table class="table table-bordered xg-table xg-no-hline" cellspacing="0">
+        <thead>
+            <tr>
+                <th>@R0["ItemType"]</th>
+                <th>@R0["Item"]</th>
+                <th width="150px">@R0["Amount"]</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+    </table>
+</form>
+@await Component.InvokeAsync("XgSaveBack")
+
+<script id="tplItem" type="text/template">
+    <tr>
+        @await Component.InvokeAsync("XiHide", new XiHideDto { Fid = "Id" })
+        <td>@await Component.InvokeAsync("XiRead", new XiReadDto { Fid = "TypeName"})</td>
+        <td>@await Component.InvokeAsync("XiRead", new XiReadDto { Fid = "ItemName"})</td>
+        <td>@await Component.InvokeAsync("XiRead", new XiReadDto { Fid = "Amount"})</td>
+    </tr>
+</script>

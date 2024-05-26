@@ -1,0 +1,119 @@
+﻿@inject IHtmlLocalizer<StoreAdm.R0> R0
+
+<script type="text/javascript">
+    $(function () {
+        //debugger;
+        _me.itemExts = _json.strToArray('@Html.Raw(ViewBag.ItemExtStrs)'),
+        _me.init();
+    });
+
+    var _me = {
+        init: function () {
+            //datatable config
+            var config = {
+                columns: [
+                    { data: 'Id' },
+                    { data: 'Created', orderable: true },
+                    { data: 'Creator' },
+                    { data: 'CheckStatus' },
+                    { data: 'TakeTime', orderable: true },
+                    { data: '_Fun' },
+                    { data: 'Status', orderable: true },
+                ],
+                columnDefs: [
+                    {
+                        targets: [3], render: function (data, type, full, meta) {
+                            return _crudR.dtCheckStatusName(data);
+                        }
+                    },
+                    {
+                        targets: [5], render: function (data, type, full, meta) {
+                            return _crudR.dtCrudFun(full.Id, full.Name, true, true, true);
+                        }
+                    },
+                    { 
+                        targets: [6], render: function (data, type, full, meta) {
+                            return _crudR.dtStatusName(data);
+                        }
+                    },
+                ],
+            };
+
+            //init crud
+            _me.mItem = new EditMany('Id', 'eformItem', 'tplItem', 'tr');
+            _crudR.init(config, [null, _me.mItem]);
+
+            _me.edit0.fnAfterOpenEdit = _me.edit0_afterOpenEdit;
+
+        },
+
+        //edit0_afterLoadJson: function (json) {
+        edit0_afterOpenEdit: function (fun, json) {
+            if (fun == _fun.FunC)
+                return;
+
+            var items = _crudE.getChildRows(json, 0);
+            $('#divItems').find("[name='_TypeId']").each(function (index) {
+                var obj = $(this);
+                _iselect.setO(obj, items[index].TypeId);
+                _me.onChangeType(this);
+
+                //set itemId list and value
+                var tr = obj.closest('tr');
+                var itemId = tr.find("[name='ItemId']")
+                _iselect.setO(itemId, items[index].ItemId);
+            });
+        },
+
+        onChangeType: function(me) {
+            var obj = $(me);
+            var value = _iselect.getO(obj);
+            var tr = obj.closest('tr');
+            _iselect.filterByExt('ItemId', value, _me.itemExts, tr, false, '-請選取-');
+        },
+    }; //class
+</script>
+
+@await Component.InvokeAsync("XgProgPath", new { names = new string[] { R0["MenuOutbound"].Value } })
+<div class="xg-prog">
+    <!-- read form-->
+    <div id="divRead">
+        <!-- condition -->
+        <form id='formRead' class='xg-form xg-mb0'>
+            <div class="row">
+                <vc:xi-date dto="@(new(){ Title = R0["Applicated"].Value, Fid = "Created", InRow=true, Cols="2,3"})" />
+                <vc:xg-find-tbar dto="@(new(){HasReset = true, HasFind2 = true})" />
+            </div>
+            <vc:xi-text dto="@(new(){ Title = R0["Applicant"].Value, Fid = "Creator", MaxLen = 10, BoxClass = "xg-date-w" })" />
+        </form>
+        <form id='formRead2' class='xg-form'>
+            <vc:xi-date dto="@(new(){ Title = R0["TakeTime"].Value, Fid = "TakeTime", Cols="2,3", BoxClass = "xg-date-w"})" />
+            <vc:xi-select dto="@(new(){ Title = R0["CheckStatus"].Value, Fid = "CheckStatus", Rows = ViewBag.CheckStatuses, BoxClass = "xg-date-w" })" />
+        </form>
+
+        <div class='xg-btns-box' style="margin-top:5px;">
+            @await Component.InvokeAsync("XgCreate")
+        </div>
+
+        <!-- result list -->
+        <table id="tableRead" class="table table-bordered xg-table" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>@R0["OutboundId"]</th>
+                    <th>@R0["Applicated"]</th>
+                    <th>@R0["Applicant"]</th>
+                    <th>@R0["CheckStatus"]</th>
+                    <th>@R0["TakeTime"]</th>
+                    <th>@R0["Crud"]</th>
+                    <th>@R0["Status"]</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- edit form-->
+    <div id="divEdit" class="xg-hide">
+        <partial name="Edit" />
+    </div>
+</div>

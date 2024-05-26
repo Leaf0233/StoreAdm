@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Crud" xml:space="preserve">
+    <value>CRUD</value>
+  </data>
+  <data name="MenuUser" xml:space="preserve">
+    <value>User Maintain</value>
+  </data>
+  <data name="MenuXpRole" xml:space="preserve">
+    <value>Role Maintain</value>
+  </data>
+  <data name="MenuXpProg" xml:space="preserve">
+    <value>Program Maintain</value>
+  </data>
+  <data name="MenuOutboundCk" xml:space="preserve">
+    <value>Outbound Review</value>
+  </data>
+  <data name="MenuOutbound" xml:space="preserve">
+    <value>Outbound</value>
+  </data>
+  <data name="MenuItemType" xml:space="preserve">
+    <value>Item Category</value>
+  </data>
+  <data name="MenuMaker" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="MenuItem" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="MenuInbound" xml:space="preserve">
+    <value>Inbound</value>
+  </data>
+  <data name="SystemName" xml:space="preserve">
+    <value>Inventory management system</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Created Time</value>
+  </data>
+  <data name="Creator" xml:space="preserve">
+    <value>Creator</value>
+  </data>
+  <data name="Reviser" xml:space="preserve">
+    <value>Reviser</value>
+  </data>
+  <data name="Revised" xml:space="preserve">
+    <value>Revised Time</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Row Status</value>
+  </data>
+  <data name="UpdFile" xml:space="preserve">
+    <value>Upload File</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ToRead" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="Fun" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Sort" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="UpdImage" xml:space="preserve">
+    <value>Upload Image</value>
+  </data>
+  <data name="UpdFileName" xml:space="preserve">
+    <value>Upload File Name</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>User Account</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="DeptName" xml:space="preserve">
+    <value>Depart Name</value>
+  </data>
+  <data name="OutboundId" xml:space="preserve">
+    <value>Outbound Id</value>
+  </data>
+  <data name="Applicated" xml:space="preserve">
+    <value>Application Time</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Applicant</value>
+  </data>
+  <data name="CheckStatus" xml:space="preserve">
+    <value>Review Status</value>
+  </data>
+  <data name="TakeTime" xml:space="preserve">
+    <value>Collection time</value>
+  </data>
+  <data name="Checker" xml:space="preserve">
+    <value>Reviewer</value>
+  </data>
+  <data name="CheckTime" xml:space="preserve">
+    <value>Review Time</value>
+  </data>
+  <data name="CheckNote" xml:space="preserve">
+    <value>Review Comments</value>
+  </data>
+  <data name="ItemType" xml:space="preserve">
+    <value>Item Category</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="InboundId" xml:space="preserve">
+    <value>Inbound Id</value>
+  </data>
+</root>
